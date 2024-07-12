@@ -1,113 +1,163 @@
+"use client";
+import { useState, useRef } from "react";
+import { Button, Typography, Card, CardHeader, CardBody, CardFooter } from "@/utils/material-tailwind";
 import Image from "next/image";
+import homes from "@/constants/homes";
+import Link from "next/link";
+import { tools } from "@/constants/tools";
 
 export default function Home() {
+  const [hoveredIndex, setHoveredIndex] = useState(null);
+  const [hoverToolIndex, setHoverToolIndex] = useState(null)
+  const homeRefs = useRef([]);
+
+  const handleHover = (index:any) => {
+    setHoveredIndex(index);
+  };
+
+  const handleToolHover = (index:any) => {
+    setHoverToolIndex(index)
+  }
+
+  const handleMouseLeave = () => {
+    setHoveredIndex(null);
+    setHoverToolIndex(null)
+  };
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <main className="header">
+      <section className="mx-auto relative w-11/12 md:w-3/4">
+        <div className="pt-5 absolute w-full flex justify-between">
+          <div>
+            <Typography variant="h2" color="white" className="font-poppins font-bold">
+              Web<strong className="text-[#ff8941]">Seed</strong>.
+            </Typography>
+          </div>
+          <div>
+            <Button className="bg-[#ff8941] rounded-none px-10 py-5 shadow-none">
+              <Typography variant="small" className="font-rubik tracking-wide font-bold">
+                Buy Now
+              </Typography>
+            </Button>
+          </div>
         </div>
-      </div>
 
-      <div className="relative z-[-1] flex place-items-center before:absolute before:h-[300px] before:w-full before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 sm:before:w-[480px] sm:after:w-[240px] before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+        <div className="flex mx-auto md:w-4/5 h-screen items-center">
+          <div>
+            <Typography color="white" className="text-6xl font-poppins font-bold text-center leading-relaxed max-lg:text-2xl">
+              Webseed - WordPress Theme for Software Landing Pages
+            </Typography>
+            <Typography variant="h5" color="white" className="font-bold text-center leading-relaxed max-lg:text-lg">
+              Ideal for Startups, App Landing Pages, and SaaS Websites Theme
+            </Typography>
+            <div className="flex justify-center mt-5">
+              <Link href={"#demos"}>
+                <Button className="bg-[#ff8941] rounded-none px-10 py-5 flex">
+                  <Typography variant="small" className="font-rubik tracking-widest font-bold">
+                    Demos
+                  </Typography>
+                  <Image src="/svg/arrow-down.svg" alt="arrow-down" width={20} height={20} />
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
 
-      <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
+      <section id="demos">
+        <div className="py-16 bg-[#F9FAFF]">
+          <Typography variant="h1" className="text-[#062a4d] font-popins font-medium text-center">
+            Stunning Demo Here
+          </Typography>
+          <Typography variant="h6" className="text-[#758799] font-popins font-medium text-center  mx-auto w-11/12">
+            Choose a homepage to start navigating Growsass. Build strong & <br/> impressive websites using Growsass premade Theme.
+          </Typography>
+        </div>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
+        <div className="mx-auto w-11/12 grid grid-cols-1 md:grid-cols-3 py-16 gap-10">
+          {homes.map((home, index) => (
+            <div
+              key={index}
+              onMouseEnter={() => handleHover(index)}
+              onMouseLeave={handleMouseLeave}
+              className="group cursor-pointer"
+            >
+              <div className="relative">
+                <img src={home.img} alt="home" />
+                <div className={`absolute w-full bottom-0 py-4 flex items-center justify-center bg-[#4441CE] text-white opacity-0 transform translate-y-4 transition-all duration-300 ${hoveredIndex === index ? 'opacity-100 translate-y-0' : ''}`}>
+                  <Link href={home.url}>
+                    <Typography variant="h5" className="font-rubik font-medium text-center uppercase">View demo</Typography>
+                  </Link>
+                </div>
+              </div>
+              <div className="flex justify-center mt-5">
+                <Typography variant="h5" className="font-popins font-medium text-center">{home.title}</Typography>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Explore starter templates for Next.js.
-          </p>
-        </a>
+      <section>
+        <div className="py-16 bg-[#F9FAFF] mb-20">
+          <Typography variant="h1" className="text-[#062a4d] font-popins font-medium text-center">
+            Growsass Core Features
+          </Typography>
+          <Typography variant="h6" className="text-[#758799] font-popins font-medium text-center">
+            We Provide Impressive Freatures For your Website. You can easily <br/> manage Your website. You will love it.
+          </Typography>
+        </div>
+      </section>
 
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-balance text-sm opacity-50">
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
+      <section className="mb-20">
+        <div 
+          className="grid mx-auto md:grid-cols-3 lg:grid-cols-4 xl:w-3/4 justify-items-center gap-10">
+          {tools.map((tool, index) => (
+            <div 
+              key={index}
+              onMouseEnter={() => handleToolHover(index)}
+              onMouseLeave={handleMouseLeave}>
+              <Card className="flex flex-1 min-w-[210px] h-[191.8px]">
+                <CardBody className="mt-6">
+                  <div className="flex justify-center">
+                    <Image src={tool.src} width={70} height={70} alt={tool.title}/>
+                    <div className={`absolute w-full h-full bottom-0 py-4 flex items-center justify-center bg-[#4441CE]/80 text-white opacity-0 transform translate-y-0 transition-all duration-300 rounded-xl ${hoverToolIndex === index ? 'opacity-100 translate-y-0' : ''}`}>
+                      <Link href={tool.url}>
+                        <Typography variant="h5" className="font-rubik font-medium text-center capitalize">Learn More</Typography>
+                      </Link>
+                    </div>
+                  </div>
+                  <Typography className="font-poppins font-semibold text-center" color="black">
+                    {tool.title}
+                  </Typography>
+                </CardBody>
+              </Card>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="footer">
+          <div className="flex items-center h-[80vh]">
+            <div className="mx-auto w-auto z-10">
+              <div className="flex justify-center">
+                <Image src={"/img/review.png"} width={120} height={120} alt="reviews"/>
+              </div>
+              <Typography color="white" className="text-6xl font-poppins font-bold text-center leading-relaxed max-lg:text-2xl mb-2">Feeling in love? 
+                <strong className="font-bold italic">Purchase WebSeed !</strong></Typography>
+              <Typography color="white" className="text-xl font-poppins font-semibold text-center leading-relaxed max-lg:text-lg ">Impressive design, powerful features, and easy customization</Typography>
+              <div className="flex justify-center mt-5">
+                <Link href={"#demos"}>
+                  <Button className="bg-[#ff8941] rounded-none px-10 py-5 flex">
+                    <Typography variant="small" className="font-rubik tracking-widest font-bold">
+                      Purchase now
+                    </Typography>
+                  </Button>
+                </Link>
+              </div>
+            </div>
+          </div>
+      </section>
     </main>
   );
 }

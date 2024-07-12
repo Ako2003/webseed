@@ -1,6 +1,8 @@
+const withMT = require("@material-tailwind/react/utils/withMT");
+
 import type { Config } from "tailwindcss";
 
-const config: Config = {
+module.exports = withMT({
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -13,8 +15,14 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      screens: {
+        'max-sm': {'max': '640px'},
+        'max-md': {'max': '768px'},
+        'max-lg': {'max': '1024px'},
+        'max-xl': {'max': '1280px'},
+        'max-2xl': {'max': '1536px'},
+      }
     },
   },
   plugins: [],
-};
-export default config;
+});
