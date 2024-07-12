@@ -140,12 +140,12 @@ export default function Home() {
       <section className="footer">
           <div className="flex items-center h-[80vh]">
             <div className="mx-auto w-auto z-10">
-              <div className="flex justify-center">
+              <div className="flex justify-center mb-4">
                 <Image src={"/img/review.png"} width={120} height={120} alt="reviews"/>
               </div>
-              <Typography color="white" className="text-6xl font-poppins font-bold text-center leading-relaxed max-lg:text-2xl mb-2">Feeling in love? 
+              <Typography color="white" className="text-6xl font-poppins font-bold text-center leading-relaxed max-lg:text-xl mb-2">Feeling in love? 
                 <strong className="font-bold italic">Purchase WebSeed !</strong></Typography>
-              <Typography color="white" className="text-xl font-poppins font-semibold text-center leading-relaxed max-lg:text-lg ">Impressive design, powerful features, and easy customization</Typography>
+              <Typography color="white" className="text-xl font-poppins font-semibold text-center leading-relaxed max-lg:text-sm ">Impressive design, powerful features, and easy customization</Typography>
               <div className="flex justify-center mt-5">
                 <Link href={"#demos"}>
                   <Button className="bg-[#ff8941] rounded-none px-10 py-5 flex">
